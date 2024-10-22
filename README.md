@@ -46,10 +46,10 @@ Nachdem das Bookmarklet in Ihrem Browser eingerichtet wurde, können Sie es mit 
 3. **Automatisches Ausfüllen**: Nachdem die Konfiguration vorgenommen wurde, können Sie das Autofill-Bookmarklet verwenden, um das Formular automatisch auszufüllen.
 
 ## Releases herunterladen
-Die neuesten Versionen können direkt auf der [Releases-Seite](https://github.com/schbrongx/form.autofiller/releases) des GitHub-Repositories heruntergeladen werden. Hier finden Sie alle Veröffentlichungen mit entsprechenden Versionshinweisen, Installationshinweisen und nützlichen Informationen. 
+Die neuesten Versionen können direkt auf der [Releases-Seite](https://github.com/schbrongx/fab/releases) des GitHub-Repositories heruntergeladen werden. Hier finden Sie alle Veröffentlichungen mit entsprechenden Versionshinweisen, Installationshinweisen und nützlichen Informationen. 
 
 ## Fehler melden und Kontakt
-Sollten Ihnen Fehler oder Verbesserungsvorschläge auffallen, können Sie diese direkt über den [Issue-Tracker](https://github.com/schbrongx/form.autofiller/issues) auf GitHub melden. Alternativ können Sie mich auch über das GitHub-Profil [schbrongx](https://github.com/schbrongx) kontaktieren.
+Sollten Ihnen Fehler oder Verbesserungsvorschläge auffallen, können Sie diese direkt über den [Issue-Tracker](https://github.com/schbrongx/fab/issues) auf GitHub melden. Alternativ können Sie mich auch über das GitHub-Profil [schbrongx](https://github.com/schbrongx) kontaktieren.
 
 Vielen Dank für die Nutzung von **FAB**! Wir freuen uns auf Ihr Feedback und Ihre Verbesserungsvorschläge.
 
