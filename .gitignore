@@ -1,0 +1,33 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+.env
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# JSON files
+*.json
+!example.json
+
+# VS Code workspace files
+*.code-workspace
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Other common Python project files to ignore
+*.log
+*.pot
+*.pyc
+.DS_Store
+.env
+.idea/
+.pytest_cache/
+.coverage
+htmlcov/
