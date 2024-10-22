@@ -1,0 +1,56 @@
+[
+    {
+        "position": 1,
+        "name": "Vorname",
+        "feldname": "_given_name",
+        "wert": "Hans"
+    },
+    {
+        "position": 2,
+        "name": "Nachname",
+        "feldname": "_surname",
+        "wert": "Mustermann"
+    },
+    {
+        "position": 3,
+        "name": "Strasse",
+        "feldname": "_street",
+        "wert": "Poststrasse"
+    },
+    {
+        "position": 4,
+        "name": "Hausnummer",
+        "feldname": "_nr",
+        "wert": "42"
+    },
+    {
+        "position": 5,
+        "name": "PLZ",
+        "feldname": "_postcode",
+        "wert": "1170"
+    },
+    {
+        "position": 6,
+        "name": "Stadt",
+        "feldname": "_city",
+        "wert": "Wien"
+    },
+    {
+        "position": 7,
+        "name": "Land",
+        "feldname": "_country",
+        "wert": "\u00d6sterreich"
+    },
+    {
+        "position": 8,
+        "name": "Telefonnummer",
+        "feldname": "_phone",
+        "wert": "+41 676 123 45 67"
+    },
+    {
+        "position": 9,
+        "name": "Email",
+        "feldname": "_mail",
+        "wert": "ha.mu@vienna.at"
+    }
+]
