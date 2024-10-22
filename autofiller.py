@@ -11,7 +11,7 @@ global current_file_path
 current_file_path = None
 
 # Clear all rows except the first one, used to reset the data
-def neu_datei():
+def file_new():
     global current_file_path
     current_file_path = None
     root.title("Neue Datei")
@@ -22,12 +22,12 @@ def neu_datei():
     update_status()
 
 # Save current data to a JSON file
-def save_file():
+def file_save():
     global current_file_path
     if current_file_path:
         save_to_path(current_file_path)
     else:
-        save_file_as()
+        file_save_as()
 
 # Save current data to a specific path
 def save_to_path(file_path):
@@ -46,7 +46,7 @@ def save_to_path(file_path):
     changes_made = False
 
 # Save current data to a JSON file
-def save_file_as():
+def file_save_as():
     global current_file_path
     file_path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON files", "*.json"), ("All files", "*.*")])
     if file_path:
@@ -54,7 +54,7 @@ def save_file_as():
         save_to_path(file_path)
 
 # Load data from a JSON file and populate the table
-def load_file():
+def file_load():
     global current_file_path
     file_path = filedialog.askopenfilename(defaultextension=".json", filetypes=[("JSON files", "*.json"), ("All files", "*.*")])
     if file_path:
@@ -89,7 +89,7 @@ def quit():
         if answer is None:
             return  # Cancel, do not quit
         elif answer:
-            save_file()
+            file_save()
     root.quit()
 
 # Create a new row with empty values
@@ -269,25 +269,25 @@ def open_bookmarklet_window():
     scrollbar.pack(side=tk.RIGHT, fill=tk.Y, in_=textarea)
 
     # Button to close the bookmarklet window
-    close_button = tk.Button(bookmarklet_window, text="Schließen", command=bookmarklet_window.destroy)
+    close_button = tk.Button(bookmarklet_window, text="Schliessen", command=bookmarklet_window.destroy)
     close_button.pack(pady=10)
-    add_tooltip(close_button, "Schließe dieses Fenster.")
+    add_tooltip(close_button, "Schliesse dieses Fenster.")
 
 
 # Create the main window
 root = tk.Tk()
-root.title("Hauptfenster")
-root.geometry("600x500")
+root.title("FAB - form autofill bookmarklet-generator")
+root.geometry("800x600")
 
 # Create the menu bar
 menubar = tk.Menu(root)
 
 # "File" menu
 file_menu = tk.Menu(menubar, tearoff=0)
-file_menu.add_command(label="Neu", command=neu_datei)
-file_menu.add_command(label="Speichern", command=save_file)
-file_menu.add_command(label="Speichern unter ...", command=save_file_as)
-file_menu.add_command(label="Laden", command=load_file)
+file_menu.add_command(label="Neu", command=file_new)
+file_menu.add_command(label="Öffnen", command=file_load)
+file_menu.add_command(label="Speichern", command=file_save)
+file_menu.add_command(label="Speichern unter ...", command=file_save_as)
 file_menu.add_separator()
 file_menu.add_command(label="Beenden", command=quit)
 
