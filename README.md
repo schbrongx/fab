@@ -2,22 +2,24 @@
 
 Willkommen zu **FAB**! Diese Anwendung soll Ihnen dabei helfen, Formulare im Web automatisiert auszufüllen. Die Idee ist, Ihnen Zeit und Mühe zu sparen, indem immer wiederkehrende Formularfelder mit minimalem Aufwand ausgefüllt werden.
 
+## Open Source und Antivirus
+* Der Quellcode ist Open Source und kann von jedem eingesehen werden, damit ist es auch für IT-Abteilungen von Firmen transparent und kontrollierbar.
+* Das [aktuelle Release](https://github.com/schbrongx/fab/releases/tag/v1.0.0) wurde am 22.20204 auf Virustotal.com auf Schadsoftware überprüft, [hier der Link](https://www.virustotal.com/gui/url/bb20afc46df69b488b0fcb704c2b83178ad52e38635cea875761b49988bc82e4/details) zum Prüfbericht.
+
 ## Funktionsweise
 **FAB** erzeugt ein Bookmarklet (ein kleines JavaScript-Programm, das Sie als Lesezeichen in Ihrem Browser speichern können). Es hilft Ihnen, Formulare in verschiedenen Webanwendungen automatisch auszufüllen, indem es einmal hinterlegte Daten in die entsprechenden Felder einfügt.
-In jeder Zeile kann ein frei gewählter Name, der (technische) Feldname des Formularfelds und ein auszufüllender Wert angegeben werden. Mit den kleinen Icons
-am Ende der Zeile, kann man die Zeile leeren, die Zeile löschen, eine Zeile anfügen oder die Zeile verschieben.
 
-Sobald man alle Formularfelder, die man ausfüllen lassen möchte, zusammengestellt hat, kann man ein "Bookmarklet generieren" und dieses generierte Bookmarklet
-dann jederzeit im Browser benutzen um Formularfelder auszufüllen.
+In jeder Zeile kann ein frei gewählter Name, der (technische) Feldname des Formularfelds und ein auszufüllender Wert angegeben werden. Mit den kleinen Icons am Ende der Zeile, kann man die Zeile leeren, die Zeile löschen, eine Zeile anfügen oder die Zeile verschieben.
+
+Sobald man alle Formularfelder, die man ausfüllen lassen möchte, zusammengestellt hat, kann man ein "Bookmarklet generieren" und dieses generierte Bookmarklet dann jederzeit im Browser benutzen um Formularfelder auszufüllen.
 
 ## Hilfs-Bookmarklet
 Das Bookmarklet im Hilfemenü hilft dabei, die Namen der Felder auf einer Webseite zu identifizieren. Diese Informationen können dann zur Konfiguration des Programms verwendet werden, um die spezifischen Felder der Webseite automatisiert auszufüllen.
-Für Felder die mehrere vordefinierte Werte annehmen können, werden auch die vordefinierten Werte angezeit, wenn möglich.
-Das Bookmarklet kann mehrmals betätigt werden um die Feldanzeige an- und auszuschalten.
+
+Für Felder die mehrere vordefinierte Werte annehmen können, werden auch die vordefinierten Werte angezeit, wenn möglich. Das Bookmarklet kann mehrmals betätigt werden um die Feldanzeige an- und auszuschalten.
 
 ## Installation eines Bookmarklets
-1. **Erzeugung des Bookmarklets**: Entweder das Bookmarklet mit dem Knopf "Bookmarklet generieren" erzeugen und mit dem Kopier-Knopf in die Zwischenablage
-kopieren, oder das Bookmarklet aus dem Hilfemenü mit dem Kopier-Knopf in die Zwischenablage kopieren.
+1. **Erzeugung des Bookmarklets**: Entweder das Bookmarklet mit dem Knopf "Bookmarklet generieren" erzeugen und mit dem Kopier-Knopf in die Zwischenablage kopieren, oder das Bookmarklet aus dem Hilfemenü mit dem Kopier-Knopf in die Zwischenablage kopieren.
 
 2. **Hinzufügen des Bookmarklets zu Ihrem Browser**:
    
