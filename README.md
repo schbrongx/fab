@@ -3,14 +3,22 @@
 Willkommen zu **form.autofiller**! Diese Anwendung soll Ihnen dabei helfen, Formulare im Web automatisiert auszufüllen. Die Idee ist, Ihnen Zeit und Mühe zu sparen, indem immer wiederkehrende Formularfelder mit minimalem Aufwand belegt werden.
 
 ## Funktionsweise
-**form.autofiller** ist ein Bookmarklet (ein kleines JavaScript-Programm, das Sie als Lesezeichen in Ihrem Browser speichern können). Es hilft Ihnen, Formulare in verschiedenen Webanwendungen automatisch auszufüllen, indem es einmal hinterlegte Daten übernommen und in die entsprechenden Felder einfügt.
+**form.autofiller** erzeugt ein Bookmarklet (ein kleines JavaScript-Programm, das Sie als Lesezeichen in Ihrem Browser speichern können). Es hilft Ihnen, Formulare in verschiedenen Webanwendungen automatisch auszufüllen, indem es einmal hinterlegte Daten übernommen und in die entsprechenden Felder einfügt.
+In jeder Zeile kann ein frei gewählter Name, der (technische) Feldname des Formularfelds und ein auszufüllender Wert angegeben werden. Mit den kleinen Icons
+am Ende der Zeile, kann man die Zeile leeren, die Zeile löschen, eine Zeile anfügen oder die Zeile verschieben.
 
+Sobald man alle Formularfelder, die man ausfüllen lassen möchte, zusammengestellt hat, kann man ein "Bookmarklet generieren" und dieses generierte Bookmarklet
+dann jederzeit im Browser benutzen um Formularfelder auszufüllen.
+
+## Hilfs-Bookmarklet
 Das Bookmarklet im Hilfemenü hilft dabei, die Namen der Felder auf einer Webseite zu identifizieren. Diese Informationen können dann zur Konfiguration des Programms verwendet werden, um die spezifischen Felder der Webseite automatisiert zu belegen.
+Für Felder die mehrere vordefinierte Werte annehmen können, werden auch die vordefinierten Werte angezeit, wenn möglich.
 
-## Installation des Bookmarklets
-1. **Download des Bookmarklets**: Gehen Sie zum GitHub-Repository [form.autofiller](https://github.com/schbrongx/form.autofiller) und laden Sie die neueste Version herunter, die Sie unter **Releases** finden.
-2. **Erzeugung des Bookmarklets**: Das heruntergeladene JavaScript wird in ein Bookmarklet umgewandelt.
-3. **Hinzufügen des Bookmarklets zu Ihrem Browser**:
+## Installation eines Bookmarklets
+1. **Erzeugung des Bookmarklets**: Entweder das Bookmarklet mit dem Knopf "Bookmarklet generieren" erzeugen und mit dem Kopier-Knopf in die Zwischenablage
+kopieren, oder das Bookmarklet aus dem Hilfemenü mit dem Kopier-Knopf in die Zwischenablage kopieren.
+
+2. **Hinzufügen des Bookmarklets zu Ihrem Browser**:
    
    ### Microsoft Edge
    - Öffnen Sie die Favoritenleiste („Strg+Umschalttaste+B“).
@@ -25,7 +33,11 @@ Das Bookmarklet im Hilfemenü hilft dabei, die Namen der Felder auf einer Websei
    - Ziehen Sie das Bookmarklet in die Leiste oder erstellen Sie ein neues Lesezeichen mit dem Code als URL.
 
 ## Verwendung des Bookmarklets
-Nachdem das Bookmarklet in Ihrem Browser eingerichtet wurde, können Sie es mit einem Klick darauf aktivieren. Das Bookmarklet wird die Formularfelder der aktuellen Webseite untersuchen und die Feldnamen anzeigen. Diese Namen können verwendet werden, um die Konfigurationsdatei des **form.autofiller**-Programms anzupassen, sodass die richtigen Informationen an die richtigen Stellen im Formular eingetragen werden.
+Nachdem das Bookmarklet in Ihrem Browser eingerichtet wurde, können Sie es mit einem Klick darauf aktivieren.
+
+* Das Hilfs-Bookmarklet wird die Formularfelder der aktuellen Webseite untersuchen und die Feldnamen anzeigen. Diese Namen können verwendet werden, um die Konfigurationsdatei des **form.autofiller**-Programms anzupassen, sodass die richtigen Informationen an die richtigen Stellen im Formular eingetragen werden.
+
+* Das generierte Bookmarklet wird die Felder des Formulars auf der aktuellen Webseite ausfüllen, wenn alles richtig konfiguriert ist.
 
 ### Formular automatisch ausfüllen
 1. **Identifizierung der Formularfelder**: Klicken Sie auf das Bookmarklet, um die Namen der Formularfelder anzuzeigen.
