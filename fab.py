@@ -6,9 +6,44 @@ import json
 from custom_ui import custom_yesnocancel
 from ui_helper import add_tooltip
 
+
 # Initialize current_file_path variable
 global current_file_path
 current_file_path = None
+
+
+# main window class to provide display area with scrollbars
+class ScrollableFrame(tk.Frame):
+    def __init__(self, parent, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
+        
+        # create canvas to host scrollbar
+        self.canvas = tk.Canvas(self, bg="lightgray")
+        self.scrollbar = tk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
+        self.scrollable_frame = tk.Frame(self.canvas, bg="lightgray")
+
+        # link scrollbar to canvas
+        self.scrollable_frame.bind(
+            "<Configure>",
+            lambda e: self.canvas.configure(
+                scrollregion=self.canvas.bbox("all")
+            )
+        )
+
+        self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+        self.canvas.configure(yscrollcommand=self.scrollbar.set)
+
+        # define layout
+        self.scrollbar.pack(side="right", fill="y")
+        self.canvas.pack(side="left", fill="both", expand=True)
+
+        # Allow the scrollable_frame to expand properly in width
+        self.scrollable_frame.bind("<Configure>", lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all")))
+        self.canvas.bind("<Configure>", lambda e: self.canvas.itemconfig(self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw", width=e.width)))
+
+    def get_scrollable_frame(self):
+        return self.scrollable_frame
+
 
 # Clear all rows except the first one, used to reset the data
 def file_new():
@@ -187,7 +222,6 @@ def refresh_table():
 
     bookmarklet_entry = tk.Entry(displayarea)
     bookmarklet_entry.grid(row=0, column=1, columnspan=2, padx=5, pady=5, sticky="nsew")
-    displayarea.grid_columnconfigure(2, weight=1)  # Make the text field grow with the window
 
     # Add column headers
     tk.Label(displayarea, text="Nr.", font=("Helvetica", 10, "bold"), bd=1, relief="solid").grid(row=1, column=0, padx=5, pady=5, sticky="nsew")
@@ -299,12 +333,16 @@ help_menu.add_command(label="Bookmarklet für Formularnamen", command=open_bookm
 
 menubar.add_cascade(label="Hilfe", menu=help_menu)
 
+
 # Add the menu bar to the main window
 root.config(menu=menubar)
 
-# Display area for rows
-displayarea = tk.Frame(root, bg="lightgray")
-displayarea.pack(fill=tk.BOTH, expand=True)
+# create scrollable area
+scrollable_frame_container = ScrollableFrame(root)
+scrollable_frame_container.pack(fill="both", expand=True)
+
+# Display area for rows inside scrollable container
+displayarea = scrollable_frame_container.get_scrollable_frame()
 
 # Create initial row
 rows = [create_row()]
