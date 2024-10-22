@@ -293,12 +293,6 @@ file_menu.add_command(label="Beenden", command=quit)
 
 menubar.add_cascade(label="Datei", menu=file_menu)
 
-# "Settings" menu
-preferences_menu = tk.Menu(menubar, tearoff=0)
-preferences_menu.add_command(label="Einstellungen ...", command=lambda: messagebox.showinfo("Einstellungen", "Einstellungsfenster"))
-
-menubar.add_cascade(label="Einstellungen", menu=preferences_menu)
-
 # "Help" menu
 help_menu = tk.Menu(menubar, tearoff=0)
 help_menu.add_command(label="Bookmarklet für Formularnamen", command=open_bookmarklet_window)
