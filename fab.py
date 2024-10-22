@@ -4,45 +4,13 @@ from tkinter import filedialog
 import pyperclip
 import json
 from custom_ui import custom_yesnocancel
+from scrollable_frame import ScrollableFrame
 from ui_helper import add_tooltip
 
 
 # Initialize current_file_path variable
 global current_file_path
 current_file_path = None
-
-
-# main window class to provide display area with scrollbars
-class ScrollableFrame(tk.Frame):
-    def __init__(self, parent, *args, **kwargs):
-        super().__init__(parent, *args, **kwargs)
-        
-        # create canvas to host scrollbar
-        self.canvas = tk.Canvas(self, bg="lightgray")
-        self.scrollbar = tk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
-        self.scrollable_frame = tk.Frame(self.canvas, bg="lightgray")
-
-        # link scrollbar to canvas
-        self.scrollable_frame.bind(
-            "<Configure>",
-            lambda e: self.canvas.configure(
-                scrollregion=self.canvas.bbox("all")
-            )
-        )
-
-        self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
-        self.canvas.configure(yscrollcommand=self.scrollbar.set)
-
-        # define layout
-        self.scrollbar.pack(side="right", fill="y")
-        self.canvas.pack(side="left", fill="both", expand=True)
-
-        # Allow the scrollable_frame to expand properly in width
-        self.scrollable_frame.bind("<Configure>", lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all")))
-        self.canvas.bind("<Configure>", lambda e: self.canvas.itemconfig(self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw", width=e.width)))
-
-    def get_scrollable_frame(self):
-        return self.scrollable_frame
 
 
 # Clear all rows except the first one, used to reset the data
@@ -355,6 +323,8 @@ status_label.pack(side=tk.BOTTOM, fill=tk.X)
 # Function to update the status bar with the current number of rows
 def update_status():
     status_label.config(text=f"Anz. Formularfelder: {len(rows)}")
+
+update_status()
 
 # Track changes to prompt save on exit
 changes_made = False
