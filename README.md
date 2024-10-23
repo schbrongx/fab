@@ -4,7 +4,7 @@ Willkommen zu **FAB**! Diese Anwendung soll Ihnen dabei helfen, Formulare im Web
 
 ## Open Source und Antivirus
 * Der Quellcode ist Open Source und kann von jedem eingesehen werden, damit ist es auch für IT-Abteilungen von Firmen transparent und kontrollierbar.
-* Das [aktuelle Release](https://github.com/schbrongx/fab/releases/tag/v1.0.1) wurde am 22.20204 auf Virustotal.com auf Schadsoftware überprüft, [hier der Link](https://www.virustotal.com/gui/url/f2dcea0588ff65ea12f9614626dd212104d6ec47e968a53bbc3d636618d9d39a?nocache=1) zum Prüfbericht.
+* Das [aktuelle Release](https://github.com/schbrongx/fab/releases/tag/v1.0.1) wurde auf Virustotal.com auf Schadsoftware überprüft, [hier der Link](https://www.virustotal.com/gui/url/f2dcea0588ff65ea12f9614626dd212104d6ec47e968a53bbc3d636618d9d39a?nocache=1) zum Prüfbericht.
 
 ## Funktionsweise
 **FAB** erzeugt ein Bookmarklet (ein kleines JavaScript-Programm, das Sie als Lesezeichen in Ihrem Browser speichern können). Es hilft Ihnen, Formulare in verschiedenen Webanwendungen automatisch auszufüllen, indem es einmal hinterlegte Daten in die entsprechenden Felder einfügt.
