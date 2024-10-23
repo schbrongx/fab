@@ -5,7 +5,8 @@ import pyperclip
 import json
 from custom_ui import custom_yesnocancel
 from scrollable_frame import ScrollableFrame
-from ui_helper import add_tooltip
+from helper import add_tooltip, resource_path
+from PIL import Image, ImageTk
 
 
 # Initialize current_file_path variable
@@ -181,10 +182,10 @@ def refresh_table():
 
     def copy_bookmarklet():
         pyperclip.copy(bookmarklet_entry.get())
-        copy_button.config(text="✓", fg="green")
-        displayarea.after(3000, lambda: copy_button.config(text="📋", fg="black"))
+        copy_button.config(image=icon_check)
+        displayarea.after(3000, lambda: copy_button.config(image=icon_copy))
 
-    copy_button = tk.Button(displayarea, text="📋", command=copy_bookmarklet)
+    copy_button = tk.Button(displayarea, image=icon_copy, command=copy_bookmarklet)
     copy_button.grid(row=0, column=3, padx=5, pady=5, sticky="w")
     add_tooltip(copy_button, "Kopiere den Bookmarklet-Code in die Zwischenablage.")
 
@@ -209,23 +210,23 @@ def refresh_table():
         tk.Entry(displayarea, textvariable=row['wert'], bd=1, relief="solid").grid(row=i + 2, column=3, padx=5, pady=5, sticky="nsew")
 
         # Buttons for row actions
-        clear_button = tk.Button(displayarea, text="x", command=lambda i=i: clear_row(i), bd=1, relief="solid")
+        clear_button = tk.Button(displayarea, image=icon_clear, command=lambda i=i: clear_row(i), bd=1, relief="solid")
         clear_button.grid(row=i + 2, column=4, padx=5, pady=5, sticky="nsew")
         add_tooltip(clear_button, "Lösche den Inhalt dieser Zeile.")
 
-        delete_button = tk.Button(displayarea, text="-", command=lambda i=i: delete_row(i), state=(tk.NORMAL if len(rows) > 1 else tk.DISABLED), bd=1, relief="solid")
+        delete_button = tk.Button(displayarea, image=icon_delete, command=lambda i=i: delete_row(i), state=(tk.NORMAL if len(rows) > 1 else tk.DISABLED), bd=1, relief="solid")
         delete_button.grid(row=i + 2, column=5, padx=5, pady=5, sticky="nsew")
         add_tooltip(delete_button, "Lösche diese Zeile.")
 
-        add_button = tk.Button(displayarea, text="+", command=lambda i=i: add_row(i + 1), bd=1, relief="solid")
+        add_button = tk.Button(displayarea, image=icon_add, command=lambda i=i: add_row(i + 1), bd=1, relief="solid")
         add_button.grid(row=i + 2, column=6, padx=5, pady=5, sticky="nsew")
         add_tooltip(add_button, "Füge eine neue Zeile nach dieser hinzu.")
 
-        up_button = tk.Button(displayarea, text="↑", command=lambda i=i: move_row_up(i), state=(tk.NORMAL if i > 0 else tk.DISABLED), bd=1, relief="solid")
+        up_button = tk.Button(displayarea, image=icon_up, command=lambda i=i: move_row_up(i), state=(tk.NORMAL if i > 0 else tk.DISABLED), bd=1, relief="solid")
         up_button.grid(row=i + 2, column=7, padx=5, pady=5, sticky="nsew")
         add_tooltip(up_button, "Verschiebe diese Zeile nach oben.")
 
-        down_button = tk.Button(displayarea, text="↓", command=lambda i=i: move_row_down(i), state=(tk.NORMAL if i < len(rows) - 1 else tk.DISABLED), bd=1, relief="solid")
+        down_button = tk.Button(displayarea, image=icon_down, command=lambda i=i: move_row_down(i), state=(tk.NORMAL if i < len(rows) - 1 else tk.DISABLED), bd=1, relief="solid")
         down_button.grid(row=i + 2, column=8, padx=5, pady=5, sticky="nsew")
         add_tooltip(down_button, "Verschiebe diese Zeile nach unten.")
 
@@ -245,14 +246,14 @@ def open_bookmarklet_window():
     # Copy the JavaScript code to the clipboard
     def copy_to_clipboard():
         pyperclip.copy(bookmarklet_code)
-        copy_button.config(text="✓", fg="green")
-        bookmarklet_window.after(3000, lambda: copy_button.config(text="📋", fg="black"))
+        copy_button.config(image=icon_check)
+        bookmarklet_window.after(3000, lambda: copy_button.config(image=icon_copy))
 
     # Frame for the copy button
     copy_frame = tk.Frame(bookmarklet_window)
     copy_frame.pack(pady=5, anchor="w", padx=10)
 
-    copy_button = tk.Button(copy_frame, text="📋", command=copy_to_clipboard)
+    copy_button = tk.Button(copy_frame, image=icon_copy, command=copy_to_clipboard)
     copy_button.pack(side=tk.LEFT)
     add_tooltip(copy_button, "Kopiere den JavaScript-Code in die Zwischenablage.")
 
@@ -280,6 +281,21 @@ def open_bookmarklet_window():
 root = tk.Tk()
 root.title("FAB - form autofill bookmarklet-generator")
 root.geometry("800x600")
+
+# Load the images for the buttons
+icon_delete = tk.PhotoImage(file=resource_path("static/images/delete16.png"))
+icon_add = tk.PhotoImage(file=resource_path("static/images/add16.png"))
+icon_up = tk.PhotoImage(file=resource_path("static/images/up16.png"))
+icon_down = tk.PhotoImage(file=resource_path("static/images/down16.png"))
+icon_clear = tk.PhotoImage(file=resource_path("static/images/clear16.png"))
+icon_copy = tk.PhotoImage(file=resource_path("static/images/copy16.png"))
+icon_check = tk.PhotoImage(file=resource_path("static/images/check16.png"))
+
+# Application icon in titlebar
+app_icon_path = resource_path("static/images/fab32.png")
+app_icon = ImageTk.PhotoImage(file=app_icon_path)
+root.iconphoto(True, app_icon)
+
 
 # Create the menu bar
 menubar = tk.Menu(root)
